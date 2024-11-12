@@ -3,7 +3,7 @@ import React, { useState , useEffect} from "react";
 export default function Ewallet() {
     const [balanc, settBalance] = useState(() => {
         const savedBalance = localStorage.getItem("balanc");
-        return savedBalance ? JSON.parse(savedBalance) : 3000;
+        return savedBalance ? JSON.parse(savedBalance) : 0;
       });
     
       const [transiaction, setTransiaction] = useState(() => {
@@ -20,7 +20,7 @@ export default function Ewallet() {
     
 
   const withdrow=()=>{
-  let amount = document.querySelector("input").value;
+  let amount =+ document.querySelector("input").value;
   let obj ={beforeBalance:balanc, type:"withdrow",amount:amount,afterBalance:balanc-amount}
   
     if(balanc>=amount){
